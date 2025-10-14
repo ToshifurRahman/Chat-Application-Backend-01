@@ -9,7 +9,7 @@ const usersRouter = require('./router/usersRouter');
 const inboxRouter = require('./router/inboxRouter');
 
 // internal imports
-const { notFoundHandler, errorHandler } = require('./middleware/common/errorHandler');
+const { notFoundHandler, errorHandler } = require('./middlewares/common/errorHandler');
 
 const app = express();
 dotenv.config();
