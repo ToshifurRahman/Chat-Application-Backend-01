@@ -1,22 +1,32 @@
 // External imports
 const express = require('express');
+const http = require('http');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const moment = require('moment');
+
+// internal imports
+const io = require('socket.io')(server);
+const { notFoundHandler, errorHandler } = require('./middlewares/common/errorHandler');
 const loginRouter = require('./router/loginRouter');
 const usersRouter = require('./router/usersRouter');
 const inboxRouter = require('./router/inboxRouter');
 
-// internal imports
-const { notFoundHandler, errorHandler } = require('./middlewares/common/errorHandler');
-
 const app = express();
+const server = http.createServer(app);
 dotenv.config();
+
+// socket creation
+global.io = io;
 
 // database connection
 mongoose
-    .connect(process.env.MONGO_CONNECTION_STRING)
+    .connect(process.env.MONGO_CONNECTION_STRING, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     .then(() => console.log('Database Connected!'))
     .catch((err) => console.error(err));
 
@@ -44,6 +54,6 @@ app.use(notFoundHandler);
 // common error handler
 app.use(errorHandler);
 
-app.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, () => {
     console.log(`app listening to port ${process.env.PORT}`);
 });
