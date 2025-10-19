@@ -1,3 +1,8 @@
-node_modules
+node_modules/
 .env
-public/uploads
+public/uploads/
+.vscode/
+.eslintrc.js
+.prettierrc
+package-lock.json
+package.json
