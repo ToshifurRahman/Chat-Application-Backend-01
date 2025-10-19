@@ -1,0 +1,40 @@
+{
+    "devDependencies": {
+        "cross-env": "^10.1.0",
+        "eslint": "8.2.0",
+        "eslint-config-airbnb-base": "15.0.0",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-import": "2.25.2",
+        "eslint-plugin-prettier": "^5.5.1",
+        "prettier": "^3.6.1"
+    },
+    "scripts": {
+        "start": "cross-env NODE_ENV=development nodemon app.js",
+        "prod": "cross-env NODE_ENV=production node app.js",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write ."
+    },
+    "prettier": {
+        "endOfLine": "lf",
+        "semi": true,
+        "singleQuote": true,
+        "printWidth": 100,
+        "tabWidth": 4,
+        "bracketSpacing": true,
+        "trailingComma": "es5"
+    },
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "cookie-parser": "^1.4.7",
+        "dotenv": "^17.2.3",
+        "ejs": "^3.1.10",
+        "express": "^5.1.0",
+        "express-validator": "^7.2.1",
+        "http-errors": "^2.0.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.19.1",
+        "multer": "^2.0.2",
+        "nodemon": "^3.1.10"
+    }
+}

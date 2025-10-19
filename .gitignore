@@ -4,5 +4,4 @@ public/uploads/
 .vscode/
 .eslintrc.js
 .prettierrc
-package-lock.json
-package.json
+
